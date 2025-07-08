@@ -41,7 +41,6 @@ proxy-groups:
     proxies:
       - 🚀 节点选择
       - ♻️ 自动选择
-
       - 🚀 手动切换
       - DIRECT
   - name: 💬 OpenAi
