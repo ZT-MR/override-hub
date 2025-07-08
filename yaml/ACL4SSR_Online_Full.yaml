@@ -472,6 +472,44 @@ rule-providers:
 rules:
   - "DOMAIN-SUFFIX,pipe.aria.microsoft.com,DIRECT"
   - "DOMAIN-SUFFIX,events.data.microsoft.com,DIRECT"
+  - "DOMAIN-SUFFIX,autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,autodesk.net,REJECT"
+  - "DOMAIN-SUFFIX,autodesk360.com,REJECT"
+  - "DOMAIN-SUFFIX,autodesk.eu,REJECT"
+  - "DOMAIN-SUFFIX,autocad.com,REJECT"
+  - "DOMAIN-SUFFIX,appstreaming.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,api.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,cloudfront.net,REJECT"
+  - "DOMAIN-SUFFIX,activate.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,lm.licenses.adskflex.com,REJECT"
+  - "DOMAIN-SUFFIX,adlm.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,apps.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,webdeploy.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,cdn.download.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,download.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,account.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,accounts.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,signin.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,sso.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,id.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,a360.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,cloud.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,analytics.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,crash.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,emservice.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,flexnet.autodesk.com,REJECT"
+  - "IP-CIDR,23.192.0.0/11,REJECT"       # Akamai CDN（Autodesk 下载/激活）
+  - "IP-CIDR,23.64.0.0/14,REJECT"        # Akamai
+  - "IP-CIDR,23.48.0.0/14,REJECT"        # Akamai
+  - "IP-CIDR,104.81.0.0/16,REJECT"       # Akamai
+  - "IP-CIDR,184.25.0.0/16,REJECT"       # Akamai
+  - "IP-CIDR,13.32.0.0/15,REJECT"        # Amazon CloudFront（部分 Autodesk 内容）
+  - "IP-CIDR,13.224.0.0/14,REJECT"       # CloudFront
+  - "IP-CIDR,52.84.0.0/15,REJECT"        # CloudFront
+  - "IP-CIDR,69.171.224.0/19,REJECT"     # Flexera / AWS（Genuine 激活验证）
+  - "IP-CIDR,52.0.0.0/11,REJECT"         # AWS（部分 Autodesk 服务）
+  - "IP-CIDR,151.101.0.0/16,REJECT"      # Fastly（账号服务）
+  - "IP-CIDR,185.113.84.0/22,REJECT"     # Autodesk Europe
   - "RULE-SET,LocalAreaNetwork,🎯 全球直连"
   - "RULE-SET,UnBan,🎯 全球直连"
   - "RULE-SET,BanAD,🛑 广告拦截"
