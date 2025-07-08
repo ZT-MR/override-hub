@@ -470,6 +470,7 @@ rule-providers:
     type: http
 
 rules:
+  - "DOMAIN-SUFFIX,pipe.aria.microsoft.com,DIRECT"
   - "DOMAIN-SUFFIX,events.data.microsoft.com,DIRECT"
   - "RULE-SET,LocalAreaNetwork,🎯 全球直连"
   - "RULE-SET,UnBan,🎯 全球直连"
