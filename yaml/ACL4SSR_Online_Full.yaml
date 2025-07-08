@@ -242,7 +242,6 @@ proxy-groups:
       - 🇻🇳 越南节点
       - 🇮🇳 印度节点
       - 🚀 手动切换
-  - name: 🇭🇰 香港节点
     include-all: true
     filter: (?i)港|HK|hk|Hong Kong|HongKong|hongkong
     type: url-test
@@ -284,9 +283,57 @@ proxy-groups:
     type: url-test
     interval: 300
     tolerance: 50
+  - name: 🇲🇾 马来西亚节点
+    include-all: true
+    filter: (?i)马来西亚|吉隆坡|槟城|柔佛|马六甲|Malaysia
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇹🇭 泰国节点
+    include-all: true
+    filter: (?i)泰国|曼谷|清迈|芭堤雅|Thailand
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇵🇭 菲律宾节点
+    include-all: true
+    filter: (?i)菲律宾|马尼拉|宿务|达沃|Philippines
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇮🇩 印度尼西亚节点
+    include-all: true
+    filter: (?i)印尼|印度尼西亚|雅加达|巴厘岛|泗水|Indonesia
+    type: url-test
+    interval: 300
+    tolerance: 50
   - name: 🇮🇳 印度节点
     include-all: true
-    filter: (?i)IN|India|IND|印度|孟买
+    filter: (?i)印度|孟买|新德里|班加罗尔|India
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇧🇩 孟加拉国节点
+    include-all: true
+    filter: (?i)孟加拉|达卡|吉大港|Bangladesh
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇵🇰 巴基斯坦节点
+    include-all: true
+    filter: (?i)巴基斯坦|伊斯兰堡|卡拉奇|拉合尔|Pakistan
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇱🇰 斯里兰卡节点
+    include-all: true
+    filter: (?i)斯里兰卡|科伦坡|Sri Lanka
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇰🇿 哈萨克斯坦节点
+    include-all: true
+    filter: (?i)哈萨克斯坦|阿拉木图|努尔苏丹|Kazakhstan
     type: url-test
     interval: 300
     tolerance: 50
@@ -308,7 +355,7 @@ proxy-groups:
     type: url-test
     interval: 300
     tolerance: 50
-  - name: 🇪🇸 西班牙节点
+  #- name: 🇪🇸 西班牙节点
     include-all: true
     filter: (?i)西班牙|马德里|巴塞罗那|瓦伦西亚|塞维利亚|西班牙|Spain
     type: url-test
@@ -320,49 +367,49 @@ proxy-groups:
     type: url-test
     interval: 300
     tolerance: 50
-  - name: 🇳🇱 荷兰节点
+  #- name: 🇳🇱 荷兰节点
     include-all: true
     filter: (?i)荷兰|阿姆斯特丹|鹿特丹|海牙|乌得勒支|荷兰|Netherlands
     type: url-test
     interval: 300
     tolerance: 50
-  - name: 🇧🇪 比利时节点
+  #- name: 🇧🇪 比利时节点
     include-all: true
     filter: (?i)比利时|布鲁塞尔|安特卫普|根特|列日|比利时|Belgium
     type: url-test
     interval: 300
     tolerance: 50
-  - name: 🇨🇭 瑞士节点
+  #- name: 🇨🇭 瑞士节点
     include-all: true
     filter: (?i)瑞士|苏黎世|日内瓦|巴塞尔|洛桑|瑞士|Switzerland
     type: url-test
     interval: 300
     tolerance: 50
-  - name: 🇸🇪 瑞典节点
+  #- name: 🇸🇪 瑞典节点
     include-all: true
     filter: (?i)瑞典|斯德哥尔摩|哥德堡|马尔默|瑞典|Sweden
     type: url-test
     interval: 300
     tolerance: 50
-  - name: 🇦🇹 奥地利节点
+  #- name: 🇦🇹 奥地利节点
     include-all: true
     filter: (?i)奥地利|维也纳|萨尔茨堡|林茨|奥地利|Austria
     type: url-test
     interval: 300
     tolerance: 50
-  - name: 🇵🇱 波兰节点
+  #- name: 🇵🇱 波兰节点
     include-all: true
     filter: (?i)波兰|华沙|克拉科夫|格但斯克|波兹南|波兰|Poland
     type: url-test
     interval: 300
     tolerance: 50
-  - name: 🇵🇹 葡萄牙节点
+  #- name: 🇵🇹 葡萄牙节点
     include-all: true
     filter: (?i)葡萄牙|里斯本|波尔图|葡萄牙|Portugal
     type: url-test
     interval: 300
     tolerance: 50
-  - name: 🇮🇪 爱尔兰节点
+  #- name: 🇮🇪 爱尔兰节点
     include-all: true
     filter: (?i)爱尔兰|都柏林|科克|高威|爱尔兰|Ireland
     type: url-test
@@ -380,7 +427,7 @@ proxy-groups:
     type: url-test
     interval: 300
     tolerance: 50
-  - name: 🇨🇱 智利节点
+  #- name: 🇨🇱 智利节点
     include-all: true
     filter: (?i)智利|圣地亚哥|智利|Chile
     type: url-test
@@ -392,7 +439,7 @@ proxy-groups:
     type: url-test
     interval: 300
     tolerance: 50
-  - name: 🇲🇽 墨西哥节点
+  #- name: 🇲🇽 墨西哥节点
     include-all: true
     filter: (?i)墨西哥|墨城|蒙特雷|瓜达拉哈拉|Tijuana|Mexico
     type: url-test
