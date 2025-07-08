@@ -284,9 +284,57 @@ proxy-groups:
     type: url-test
     interval: 300
     tolerance: 50
+  - name: 🇲🇾 马来西亚节点
+    include-all: true
+    filter: (?i)马来西亚|吉隆坡|槟城|柔佛|马六甲|Malaysia
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇹🇭 泰国节点
+    include-all: true
+    filter: (?i)泰国|曼谷|清迈|芭堤雅|Thailand
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇵🇭 菲律宾节点
+    include-all: true
+    filter: (?i)菲律宾|马尼拉|宿务|达沃|Philippines
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇮🇩 印度尼西亚节点
+    include-all: true
+    filter: (?i)印尼|印度尼西亚|雅加达|巴厘岛|泗水|Indonesia
+    type: url-test
+    interval: 300
+    tolerance: 50
   - name: 🇮🇳 印度节点
     include-all: true
-    filter: (?i)IN|India|IND|印度|孟买
+    filter: (?i)印度|孟买|新德里|班加罗尔|India
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇧🇩 孟加拉国节点
+    include-all: true
+    filter: (?i)孟加拉|达卡|吉大港|Bangladesh
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇵🇰 巴基斯坦节点
+    include-all: true
+    filter: (?i)巴基斯坦|伊斯兰堡|卡拉奇|拉合尔|Pakistan
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇱🇰 斯里兰卡节点
+    include-all: true
+    filter: (?i)斯里兰卡|科伦坡|Sri Lanka
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇰🇿 哈萨克斯坦节点
+    include-all: true
+    filter: (?i)哈萨克斯坦|阿拉木图|努尔苏丹|Kazakhstan
     type: url-test
     interval: 300
     tolerance: 50
