@@ -867,6 +867,10 @@ rule-providers:
 rules:
   - "DOMAIN-SUFFIX,pipe.aria.microsoft.com,DIRECT"
   - "DOMAIN-SUFFIX,events.data.microsoft.com,DIRECT"
+  - "DOMAIN-SUFFIX,nisus-tech.com,DIRECT"
+  - "DOMAIN-SUFFIX,nisus-apyd.com,DIRECT"
+  - "DOMAIN-SUFFIX,ztmr.me,DIRECT"
+  - "DOMAIN-SUFFIX,zt-mr.top,DIRECT"
   - "DOMAIN-SUFFIX,autodesk.com,REJECT"
   - "DOMAIN-SUFFIX,autodesk.net,REJECT"
   - "DOMAIN-SUFFIX,autodesk360.com,REJECT"
