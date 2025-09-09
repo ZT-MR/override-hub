@@ -655,7 +655,9 @@ proxy-groups:
   - name: ChatGPT
     include-all: true
     filter: (?i)GPT|ChatGPT|OpenAi
-    type: select
+    type: url-test
+    interval: 300
+    tolerance: 50
 
 rule-providers:
   LocalAreaNetwork:
