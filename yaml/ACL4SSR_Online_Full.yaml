@@ -72,6 +72,7 @@ proxy-groups:
       - 🚀 节点选择
       - ♻️ 自动选择
       - 🚀 手动切换
+      - ChatGPT
       - 🇭🇰 香港节点
       - 🇯🇵 日本节点
       - 🇺🇲 美国节点
@@ -650,6 +651,10 @@ proxy-groups:
   - name: 🎥 奈飞节点
     include-all: true
     filter: (?i)NF|奈飞|解锁|Netflix|NETFLIX|Media
+    type: select
+  - name: ChatGPT
+    include-all: true
+    filter: (?i)GPT|ChatGPT|OpenAi
     type: select
 
 rule-providers:
