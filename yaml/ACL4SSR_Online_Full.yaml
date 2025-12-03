@@ -28,10 +28,6 @@ proxy-groups:
       - 🇦🇷 阿根廷节点
       - 🇨🇦 加拿大节点
       - DIRECT
-  - name: FINAL
-    type: select
-    proxies:
-      - web.ztmr.me
   - name: 🚀 手动切换
     include-all: true
     type: select
@@ -951,5 +947,4 @@ rules:
   - "RULE-SET,ChinaCompanyIp,🎯 全球直连"
   - "RULE-SET,Download,🎯 全球直连"
   - "GEOIP,CN,🎯 全球直连"
-  #- "MATCH,🐟 漏网之鱼"
-  - "MATCH, web.ztmr.me"
+  - "MATCH,🐟 漏网之鱼"
