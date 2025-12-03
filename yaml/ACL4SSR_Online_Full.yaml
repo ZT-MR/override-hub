@@ -1,6 +1,10 @@
 proxy-groups:
   - name: 🚀 节点选择
     type: select
+  - name: FINAL
+    type: select
+    proxies:
+      - web.ztmr.me
     proxies:
       - ♻️ 自动选择
       - 🚀 手动切换
@@ -948,3 +952,4 @@ rules:
   - "RULE-SET,Download,🎯 全球直连"
   - "GEOIP,CN,🎯 全球直连"
   - "MATCH,🐟 漏网之鱼"
+  - "MATCH, web.ztmr.me"
