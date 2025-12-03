@@ -658,15 +658,9 @@ proxy-groups:
     type: url-test
     interval: 300
     tolerance: 50
-  - name: 🇺🇲 美国落地节点
+  - name: 🇺🇲 美国落地
     include-all: true
     filter: (?i)美国落地
-    type: url-test
-    interval: 300
-    tolerance: 50
-  - name: 🇯🇵 日本落地节点
-    include-all: true
-    filter: (?i)日本落地
     type: url-test
     interval: 300
     tolerance: 50
@@ -885,9 +879,7 @@ rule-providers:
 # dialer-proxy 设置：落地节点通过过墙节点访问
 proxies_override:
   "🇺🇲 美国落地节点":
-    dialer-proxy: "🚀 节点选择"
-  "🇯🇵 日本落地节点":
-    dialer-proxy: "🚀 节点选择"
+    dialer-proxy: "🇺🇲 美国落地"
 
 # 流量规则：全部流量通过落地节点分组
 rules:
@@ -940,4 +932,3 @@ rules:
   - "RULE-SET,Download,🎯 全球直连"
   - "GEOIP,CN,🎯 全球直连"
   - MATCH, "🇺🇲 美国落地节点"
-  - MATCH, "🇯🇵 日本落地节点"
