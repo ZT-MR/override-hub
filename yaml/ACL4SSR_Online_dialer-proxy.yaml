@@ -885,9 +885,9 @@ rule-providers:
 # dialer-proxy 设置：落地节点通过过墙节点访问
 proxies_override:
   "🇺🇲 美国落地节点":
-    dialer-proxy: "🇺🇲 美国过墙节点"
+    dialer-proxy: "🚀 节点选择"
   "🇯🇵 日本落地节点":
-    dialer-proxy: "🇯🇵 日本过墙节点"
+    dialer-proxy: "🚀 节点选择"
 
 # 流量规则：全部流量通过落地节点分组
 rules:
