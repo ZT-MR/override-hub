@@ -1,10 +1,6 @@
 proxy-groups:
   - name: 🚀 节点选择
     type: select
-  - name: FINAL
-    type: select
-    proxies:
-      - web.ztmr.me
     proxies:
       - ♻️ 自动选择
       - 🚀 手动切换
@@ -32,6 +28,10 @@ proxy-groups:
       - 🇦🇷 阿根廷节点
       - 🇨🇦 加拿大节点
       - DIRECT
+  - name: FINAL
+    type: select
+    proxies:
+      - web.ztmr.me
   - name: 🚀 手动切换
     include-all: true
     type: select
