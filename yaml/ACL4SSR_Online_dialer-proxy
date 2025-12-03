@@ -658,6 +658,18 @@ proxy-groups:
     type: url-test
     interval: 300
     tolerance: 50
+  - name: 🇺🇲 美国落地节点
+    include-all: true
+    filter: (?i)美国落地
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇯🇵 日本落地节点
+    include-all: true
+    filter: (?i)日本落地
+    type: url-test
+    interval: 300
+    tolerance: 50
 
 rule-providers:
   LocalAreaNetwork:
@@ -870,7 +882,14 @@ rule-providers:
     interval: 86400
     format: text
     type: http
+# dialer-proxy 设置：落地节点通过过墙节点访问
+proxies_override:
+  "🇺🇲 美国落地节点":
+    dialer-proxy: "🇺🇲 美国过墙节点"
+  "🇯🇵 日本落地节点":
+    dialer-proxy: "🇯🇵 日本过墙节点"
 
+# 流量规则：全部流量通过落地节点分组
 rules:
   - "DOMAIN-SUFFIX,pipe.aria.microsoft.com,DIRECT"
   - "DOMAIN-SUFFIX,events.data.microsoft.com,DIRECT"
@@ -916,35 +935,9 @@ rules:
   - "IP-CIDR,52.0.0.0/11,REJECT"         # AWS（部分 Autodesk 服务）
   - "IP-CIDR,151.101.0.0/16,REJECT"      # Fastly（账号服务）
   - "IP-CIDR,185.113.84.0/22,REJECT"     # Autodesk Europe
-  - "RULE-SET,LocalAreaNetwork,🎯 全球直连"
-  - "RULE-SET,UnBan,🎯 全球直连"
-  - "RULE-SET,BanAD,🛑 广告拦截"
-  - "RULE-SET,BanProgramAD,🍃 应用净化"
-  - "RULE-SET,GoogleFCM,📢 谷歌FCM"
-  - "RULE-SET,GoogleCN,🎯 全球直连"
-  - "RULE-SET,SteamCN,🎯 全球直连"
-  - "RULE-SET,Bing,Ⓜ️ 微软Bing"
-  - "RULE-SET,OneDrive,Ⓜ️ 微软云盘"
-  - "RULE-SET,Microsoft,Ⓜ️ 微软服务"
-  - "RULE-SET,Apple,🍎 苹果服务"
-  - "RULE-SET,Telegram,📲 电报消息"
-  - "RULE-SET,OpenAi,💬 OpenAi"
-  - "RULE-SET,NetEaseMusic,🎶 网易音乐"
-  - "RULE-SET,Epic,🎮 游戏平台"
-  - "RULE-SET,Origin,🎮 游戏平台"
-  - "RULE-SET,Sony,🎮 游戏平台"
-  - "RULE-SET,Steam,🎮 游戏平台"
-  - "RULE-SET,Nintendo,🎮 游戏平台"
-  - "RULE-SET,YouTube,📹 油管视频"
-  - "RULE-SET,Netflix,🎥 奈飞视频"
-  - "RULE-SET,Bahamut,📺 巴哈姆特"
-  - "RULE-SET,BilibiliHMT,📺 哔哩哔哩"
-  - "RULE-SET,Bilibili,📺 哔哩哔哩"
-  - "RULE-SET,ChinaMedia,🌏 国内媒体"
-  - "RULE-SET,ProxyMedia,🌍 国外媒体"
-  - "RULE-SET,ProxyGFWlist,🚀 节点选择"
   - "RULE-SET,ChinaDomain,🎯 全球直连"
   - "RULE-SET,ChinaCompanyIp,🎯 全球直连"
   - "RULE-SET,Download,🎯 全球直连"
   - "GEOIP,CN,🎯 全球直连"
-  - "MATCH,🐟 漏网之鱼"
+  - MATCH, "🇺🇲 美国落地节点"
+  - MATCH, "🇯🇵 日本落地节点"
