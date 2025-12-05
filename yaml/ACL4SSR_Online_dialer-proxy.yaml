@@ -66,6 +66,19 @@ proxy-groups:
       - 🇦🇷 阿根廷节点
       - 🇨🇦 加拿大节点
       - DIRECT
+  #链式代理规则
+  - name: 链式代理
+    type: select
+    proxies:
+      - 链式代理跳点
+      - 🚀 节点选择
+  #链式代理跳跃点规格
+  - name: 链式代理跳点
+    type: relay
+    proxies:
+      - 🚀 节点选择
+      - 落地节点
+  #应用代理规则
   - name: 💬 OpenAi
     type: select
     proxies:
@@ -658,9 +671,9 @@ proxy-groups:
     type: url-test
     interval: 300
     tolerance: 50
-  - name: 🇺🇲 美国落地
+  - name: 落地节点
     include-all: true
-    filter: (?i)美国落地
+    filter: (?i)落地
     type: url-test
     interval: 300
     tolerance: 50
@@ -876,19 +889,16 @@ rule-providers:
     interval: 86400
     format: text
     type: http
-# dialer-proxy 设置：落地节点通过过墙节点访问
-proxies_override:
-  "🇺🇲 美国落地节点":
-    dialer-proxy: "🇺🇲 美国落地"
 
-# 流量规则：全部流量通过落地节点分组
 rules:
-  - "DOMAIN-SUFFIX,pipe.aria.microsoft.com,DIRECT"
-  - "DOMAIN-SUFFIX,events.data.microsoft.com,DIRECT"
-  - "DOMAIN-SUFFIX,nisus-tech.com,DIRECT"
-  - "DOMAIN-SUFFIX,nisus-apyd.com,DIRECT"
-  - "DOMAIN-SUFFIX,ztmr.me,DIRECT"
-  - "DOMAIN-SUFFIX,zt-mr.top,DIRECT"
+  #直连
+  - "DOMAIN-SUFFIX,pipe.aria.microsoft.com,🎯 全球直连"
+  - "DOMAIN-SUFFIX,events.data.microsoft.com,🎯 全球直连"
+  - "DOMAIN-SUFFIX,nisus-tech.com,🎯 全球直连"
+  - "DOMAIN-SUFFIX,nisus-apyd.com,🎯 全球直连"
+  - "DOMAIN-SUFFIX,ztmr.me,🎯 全球直连"
+  - "DOMAIN-SUFFIX,zt-mr.top,🎯 全球直连"
+  #阻断
   - "DOMAIN-SUFFIX,autodesk.com,REJECT"
   - "DOMAIN-SUFFIX,autodesk.net,REJECT"
   - "DOMAIN-SUFFIX,autodesk360.com,REJECT"
@@ -931,4 +941,4 @@ rules:
   - "RULE-SET,ChinaCompanyIp,🎯 全球直连"
   - "RULE-SET,Download,🎯 全球直连"
   - "GEOIP,CN,🎯 全球直连"
-  - MATCH, "🇺🇲 美国落地节点"
+  - "MATCH, "链式代理"
