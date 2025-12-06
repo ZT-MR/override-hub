@@ -51,6 +51,7 @@ proxy-groups:
     tolerance: 50
     #链式代理规则
   - name: 链式代理
+    interval: 0
     type: select
     proxies:
       - 链式代理跳点
