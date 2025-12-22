@@ -185,9 +185,10 @@ proxy-groups:
 - name: 🇺🇲 美国落地
   include-all: true
   filter: (?i)美国落地
-  type: url-test
+  type: select
+  url: 'http://YouTube.com/generate_204' # 这里直接引用了你全局常用的 YouTube 测试地址
   interval: 300
-  tolerance: 50
+
 - name: 🇭🇰 香港落地
   include-all: true
   filter: (?i)香港落地
