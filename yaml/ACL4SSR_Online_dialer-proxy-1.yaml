@@ -30,6 +30,8 @@ proxy-groups:
     proxies:
       - ♻️ 自动选择
       - 🚀 手动切换
+      - 🇭🇰 香港落地
+      - 🇺🇲 美国落地
       - 🇭🇰 香港节点
       - 🇯🇵 日本节点
       - 🇺🇲 美国节点
@@ -50,14 +52,14 @@ proxy-groups:
     interval: 300
     tolerance: 50
     #链式代理规则
-  - name: 链式代理
+  #- name: 链式代理
     interval: 0
     type: select
     proxies:
       - 链式代理跳点
       - 🚀 节点选择
   #链式代理跳跃点规格
-  - name: 链式代理跳点
+  #- name: 链式代理跳点
     type: relay
     proxies:
       - 🚀 节点选择
@@ -283,9 +285,15 @@ proxy-groups:
     type: url-test
     interval: 300
     tolerance: 50
-  - name: 落地节点
+  - name: 🇺🇲 美国落地
     include-all: true
-    filter: (?i)落地
+    filter: (?i)美国落地
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇭🇰 香港落地
+    include-all: true
+    filter: (?i)香港落地
     type: url-test
     interval: 300
     tolerance: 50
@@ -553,4 +561,4 @@ rules:
   - "RULE-SET,ChinaCompanyIp,🎯 全球直连"
   - "RULE-SET,Download,🎯 全球直连"
   - "GEOIP,CN,🎯 全球直连"
-  - "MATCH,链式代理"
+  - "MATCH,🚀 节点选择"
