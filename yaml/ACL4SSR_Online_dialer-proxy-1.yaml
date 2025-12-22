@@ -51,19 +51,7 @@ proxy-groups:
     include-all: true
     interval: 300
     tolerance: 50
-    #链式代理规则
-  #- name: 链式代理
-    interval: 0
-    type: select
-    proxies:
-      - 链式代理跳点
-      - 🚀 节点选择
-  #链式代理跳跃点规格
-  #- name: 链式代理跳点
-    type: relay
-    proxies:
-      - 🚀 节点选择
-      - 落地节点
+
   #应用代理规则
   - name: 🎯 全球直连
     type: select
