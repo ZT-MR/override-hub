@@ -1,0 +1,556 @@
+mixed-port: 7890
+ipv6: true
+udp: true
+allow-lan: false
+bind-address: '*'
+mode: rule
+log-level: info
+unified-delay: true
+experimental:
+    ignore-resolve-fail: true
+cfw-latency-timeout: 8000
+cfw-latency-url: 'http://YouTube.com/generate_204'
+cfw-conn-break-strategy: true
+hosts:
+    mtalk.google.com: 108.177.125.188
+    services.googleapis.cn: 74.125.203.94
+dns:
+    enable: true
+    listen: '127.0.0.1:1053'
+    ipv6: true
+    default-nameserver: [114.114.114.114, 223.5.5.5, 119.29.29.29]
+    enhanced-mode: fake-ip
+    fake-ip-range: 28.0.0.1/8
+    use-hosts: true
+    fake-ip-filter: ['*.lan', '*.localdomain', '*.example', '*.invalid', '*.localhost', '*.test', '*.local', '*.home.arpa', 'time.*.com', 'time.*.gov', 'time.*.edu.cn', 'time.*.apple.com', 'time1.*.com', 'time2.*.com', 'time3.*.com', 'time4.*.com', 'time5.*.com', 'time6.*.com', 'time7.*.com', 'ntp.*.com', 'ntp1.*.com', 'ntp2.*.com', 'ntp3.*.com', 'ntp4.*.com', 'ntp5.*.com', 'ntp6.*.com', 'ntp7.*.com', '*.time.edu.cn', '*.ntp.org.cn', +.pool.ntp.org, time1.cloud.tencent.com, music.163.com, '*.music.163.com', '*.126.net', musicapi.taihe.com, music.taihe.com, songsearch.kugou.com, trackercdn.kugou.com, '*.kuwo.cn', api-jooxtt.sanook.com, api.joox.com, joox.com, y.qq.com, '*.y.qq.com', streamoc.music.tc.qq.com, mobileoc.music.tc.qq.com, isure.stream.qqmusic.qq.com, dl.stream.qqmusic.qq.com, aqqmusic.tc.qq.com, amobile.music.tc.qq.com, '*.xiami.com', '*.music.migu.cn', music.migu.cn, +.msftconnecttest.com, +.msftncsi.com, msftconnecttest.com, msftncsi.com, localhost.ptlogin2.qq.com, localhost.sec.qq.com, +.srv.nintendo.net, +.stun.playstation.net, 'xbox.*.microsoft.com', xnotify.xboxlive.com, +.ipv6.microsoft.com, +.battlenet.com.cn, +.wotgame.cn, +.wggames.cn, +.wowsgame.cn, +.wargaming.net, proxy.golang.org, 'stun.*.*', 'stun.*.*.*', '+.stun.*.*', '+.stun.*.*.*', '+.stun.*.*.*.*', heartbeat.belkin.com, '*.linksys.com', '*.linksyssmartwifi.com', '*.router.asus.com', mesu.apple.com, swscan.apple.com, swquery.apple.com, swdownload.apple.com, swcdn.apple.com, swdist.apple.com, lens.l.google.com, stun.l.google.com, '*.square-enix.com', '*.finalfantasyxiv.com', '*.ffxiv.com', '*.ff14.sdo.com', ff.dorado.sdo.com, '*.mcdn.bilivideo.cn', +.media.dssott.com, +.pvp.net]
+    nameserver: ['tls://223.5.5.5:853', 'tls://223.6.6.6:853', 'https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - 🚀 手动切换
+      - 🇭🇰 香港节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇨🇳 台湾节点
+      - 🇸🇬 狮城节点
+      - 🇰🇷 韩国节点
+      - 🇻🇳 越南节点
+      - 🇲🇾 马来西亚节点
+      - 🇹🇭 泰国节点
+      - 🇵🇭 菲律宾节点
+      - DIRECT
+  - name: 🚀 手动切换
+    include-all: true
+    type: select
+  - name: ♻️ 自动选择
+    type: url-test
+    include-all: true
+    interval: 300
+    tolerance: 50
+    #链式代理规则
+  - name: 链式代理
+    interval: 0
+    type: select
+    proxies:
+      - 链式代理跳点
+      - 🚀 节点选择
+  #链式代理跳跃点规格
+  - name: 链式代理跳点
+    type: relay
+    proxies:
+      - 🚀 节点选择
+      - 落地节点
+  #应用代理规则
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+      - ♻️ 自动选择
+  - name: 🇭🇰 香港节点
+    include-all: true
+    filter: (?i)港|HK|hk|Hong Kong|HongKong|hongkong
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇯🇵 日本节点
+    include-all: true
+    filter: (?i)日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇺🇲 美国节点
+    include-all: true
+    filter: (?i)美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇨🇳 台湾节点
+    include-all: true
+    filter: (?i)台|新北|彰化|TW|Taiwan
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇸🇬 狮城节点
+    include-all: true
+    filter: (?i)新加坡|坡|狮城|SG|Singapore
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇰🇷 韩国节点
+    include-all: true
+    filter: (?i)KR|Korea|KOR|首尔|韩|韓
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇻🇳 越南节点
+    include-all: true
+    filter: (?i)VN|VietNam|Viet Nam|VNM|越南|越|胡志明
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇲🇾 马来西亚节点
+    include-all: true
+    filter: (?i)马来西亚|吉隆坡|槟城|柔佛|马六甲|Malaysia
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇹🇭 泰国节点
+    include-all: true
+    filter: (?i)泰国|曼谷|清迈|芭堤雅|Thailand
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇵🇭 菲律宾节点
+    include-all: true
+    filter: (?i)菲律宾|马尼拉|宿务|达沃|Philippines
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇮🇩 印度尼西亚节点
+    include-all: true
+    filter: (?i)印尼|印度尼西亚|雅加达|巴厘岛|泗水|Indonesia
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇮🇳 印度节点
+    include-all: true
+    filter: (?i)印度|孟买|新德里|班加罗尔|India
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇧🇩 孟加拉国节点
+    include-all: true
+    filter: (?i)孟加拉|达卡|吉大港|Bangladesh
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇵🇰 巴基斯坦节点
+    include-all: true
+    filter: (?i)巴基斯坦|伊斯兰堡|卡拉奇|拉合尔|Pakistan
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇱🇰 斯里兰卡节点
+    include-all: true
+    filter: (?i)斯里兰卡|科伦坡|Sri Lanka
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇰🇿 哈萨克斯坦节点
+    include-all: true
+    filter: (?i)哈萨克斯坦|阿拉木图|努尔苏丹|Kazakhstan
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇬🇧 英国节点
+    include-all: true
+    filter: (?i)英国|伦敦|曼彻斯特|伯明翰|格拉斯哥|英格兰|United Kingdom|UK
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇩🇪 德国节点
+    include-all: true
+    filter: (?i)德国|柏林|慕尼黑|汉堡|法兰克福|杜塞尔多夫|Germany
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇫🇷 法国节点
+    include-all: true
+    filter: (?i)法国|巴黎|马赛|里昂|图卢兹|尼斯|法国|France
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇪🇸 西班牙节点
+    include-all: true
+    filter: (?i)西班牙|马德里|巴塞罗那|瓦伦西亚|塞维利亚|西班牙|Spain
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇮🇹 意大利节点
+    include-all: true
+    filter: (?i)意大利|罗马|米兰|佛罗伦萨|那不勒斯|都灵|Italy
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇳🇱 荷兰节点
+    include-all: true
+    filter: (?i)荷兰|阿姆斯特丹|鹿特丹|海牙|乌得勒支|荷兰|Netherlands
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇧🇪 比利时节点
+    include-all: true
+    filter: (?i)比利时|布鲁塞尔|安特卫普|根特|列日|比利时|Belgium
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇨🇭 瑞士节点
+    include-all: true
+    filter: (?i)瑞士|苏黎世|日内瓦|巴塞尔|洛桑|瑞士|Switzerland
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇸🇪 瑞典节点
+    include-all: true
+    filter: (?i)瑞典|斯德哥尔摩|哥德堡|马尔默|瑞典|Sweden
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇦🇹 奥地利节点
+    include-all: true
+    filter: (?i)奥地利|维也纳|萨尔茨堡|林茨|奥地利|Austria
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇵🇱 波兰节点
+    include-all: true
+    filter: (?i)波兰|华沙|克拉科夫|格但斯克|波兹南|波兰|Poland
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇵🇹 葡萄牙节点
+    include-all: true
+    filter: (?i)葡萄牙|里斯本|波尔图|葡萄牙|Portugal
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇮🇪 爱尔兰节点
+    include-all: true
+    filter: (?i)爱尔兰|都柏林|科克|高威|爱尔兰|Ireland
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇧🇷 巴西节点
+    include-all: true
+    filter: (?i)巴西|圣保罗|里约热内卢|巴西利亚|萨尔瓦多|贝洛哈里藏特|Brazil
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇦🇷 阿根廷节点
+    include-all: true
+    filter: (?i)阿根廷|布宜诺斯艾利斯|科尔多瓦|Rosario|阿根廷|Argentina
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇨🇱 智利节点
+    include-all: true
+    filter: (?i)智利|圣地亚哥|智利|Chile
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇨🇦 加拿大节点
+    include-all: true
+    filter: (?i)加拿大|多伦多|温哥华|蒙特利尔|渥太华|加拿大|Canada
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇲🇽 墨西哥节点
+    include-all: true
+    filter: (?i)墨西哥|墨城|蒙特雷|瓜达拉哈拉|Tijuana|Mexico
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🎥 奈飞节点
+    include-all: true
+    filter: (?i)NF|奈飞|解锁|Netflix|NETFLIX|Media
+    type: select
+  - name: ChatGPT
+    include-all: true
+    filter: (?i)GPT|ChatGPT|OpenAi
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 落地节点
+    include-all: true
+    filter: (?i)落地
+    type: url-test
+    interval: 300
+    tolerance: 50
+
+rule-providers:
+  LocalAreaNetwork:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/LocalAreaNetwork.list
+    path: ./ruleset/LocalAreaNetwork.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  UnBan:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/UnBan.list
+    path: ./ruleset/UnBan.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  BanAD:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/BanAD.list
+    path: ./ruleset/BanAD.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  BanProgramAD:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/BanProgramAD.list
+    path: ./ruleset/BanProgramAD.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  GoogleFCM:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/GoogleFCM.list
+    path: ./ruleset/GoogleFCM.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  GoogleCN:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/GoogleCN.list
+    path: ./ruleset/GoogleCN.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  SteamCN:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/SteamCN.list
+    path: ./ruleset/SteamCN.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  Bing:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Bing.list
+    path: ./ruleset/Bing.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  OneDrive:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/OneDrive.list
+    path: ./ruleset/OneDrive.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  Microsoft:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Microsoft.list
+    path: ./ruleset/Microsoft.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  Apple:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Apple.list
+    path: ./ruleset/Apple.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  Telegram:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Telegram.list
+    path: ./ruleset/Telegram.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  OpenAi:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/OpenAi.list
+    path: ./ruleset/OpenAi.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  NetEaseMusic:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/NetEaseMusic.list
+    path: ./ruleset/NetEaseMusic.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  Epic:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Epic.list
+    path: ./ruleset/Epic.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  Origin:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Origin.list
+    path: ./ruleset/Origin.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  Sony:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Sony.list
+    path: ./ruleset/Sony.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  Steam:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Steam.list
+    path: ./ruleset/Steam.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  Nintendo:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Nintendo.list
+    path: ./ruleset/Nintendo.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  YouTube:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/YouTube.list
+    path: ./ruleset/YouTube.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  Netflix:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Netflix.list
+    path: ./ruleset/Netflix.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  Bahamut:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Bahamut.list
+    path: ./ruleset/Bahamut.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  BilibiliHMT:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/BilibiliHMT.list
+    path: ./ruleset/BilibiliHMT.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  Bilibili:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Bilibili.list
+    path: ./ruleset/Bilibili.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  ChinaMedia:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaMedia.list
+    path: ./ruleset/ChinaMedia.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  ProxyMedia:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ProxyMedia.list
+    path: ./ruleset/ProxyMedia.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  ProxyGFWlist:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ProxyGFWlist.list
+    path: ./ruleset/ProxyGFWlist.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  ChinaDomain:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaDomain.list
+    path: ./ruleset/ChinaDomain.list
+    behavior: domain
+    interval: 86400
+    format: text
+    type: http
+  ChinaCompanyIp:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaCompanyIp.list
+    path: ./ruleset/ChinaCompanyIp.list
+    behavior: ipcidr
+    interval: 86400
+    format: text
+    type: http
+  Download:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Download.list
+    path: ./ruleset/Download.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+
+rules:
+  #直连
+  - "DOMAIN-SUFFIX,pipe.aria.microsoft.com,🎯 全球直连"
+  - "DOMAIN-SUFFIX,events.data.microsoft.com,🎯 全球直连"
+  - "DOMAIN-SUFFIX,nisus-tech.com,🎯 全球直连"
+  - "DOMAIN-SUFFIX,nisus-apyd.com,🎯 全球直连"
+  - "DOMAIN-SUFFIX,ztmr.me,🎯 全球直连"
+  - "DOMAIN-SUFFIX,zt-mr.top,🎯 全球直连"
+  #阻断
+  - "DOMAIN-SUFFIX,autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,autodesk.net,REJECT"
+  - "DOMAIN-SUFFIX,autodesk360.com,REJECT"
+  - "DOMAIN-SUFFIX,autodesk.eu,REJECT"
+  - "DOMAIN-SUFFIX,autocad.com,REJECT"
+  - "DOMAIN-SUFFIX,appstreaming.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,api.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,cloudfront.net,REJECT"
+  - "DOMAIN-SUFFIX,activate.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,lm.licenses.adskflex.com,REJECT"
+  - "DOMAIN-SUFFIX,adlm.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,apps.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,webdeploy.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,cdn.download.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,download.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,account.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,accounts.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,signin.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,sso.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,id.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,a360.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,cloud.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,analytics.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,crash.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,emservice.autodesk.com,REJECT"
+  - "DOMAIN-SUFFIX,flexnet.autodesk.com,REJECT"
+  - "IP-CIDR,23.192.0.0/11,REJECT"       # Akamai CDN（Autodesk 下载/激活）
+  - "IP-CIDR,23.64.0.0/14,REJECT"        # Akamai
+  - "IP-CIDR,23.48.0.0/14,REJECT"        # Akamai
+  - "IP-CIDR,104.81.0.0/16,REJECT"       # Akamai
+  - "IP-CIDR,184.25.0.0/16,REJECT"       # Akamai
+  - "IP-CIDR,13.32.0.0/15,REJECT"        # Amazon CloudFront（部分 Autodesk 内容）
+  - "IP-CIDR,13.224.0.0/14,REJECT"       # CloudFront
+  - "IP-CIDR,52.84.0.0/15,REJECT"        # CloudFront
+  - "IP-CIDR,69.171.224.0/19,REJECT"     # Flexera / AWS（Genuine 激活验证）
+  - "IP-CIDR,52.0.0.0/11,REJECT"         # AWS（部分 Autodesk 服务）
+  - "IP-CIDR,151.101.0.0/16,REJECT"      # Fastly（账号服务）
+  - "IP-CIDR,185.113.84.0/22,REJECT"     # Autodesk Europe
+  - "RULE-SET,ChinaDomain,🎯 全球直连"
+  - "RULE-SET,ChinaCompanyIp,🎯 全球直连"
+  - "RULE-SET,Download,🎯 全球直连"
+  - "GEOIP,CN,🎯 全球直连"
+  - "MATCH,链式代理"
