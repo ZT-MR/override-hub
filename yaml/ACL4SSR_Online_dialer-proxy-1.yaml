@@ -190,7 +190,6 @@ proxy-groups:
   interval: 300
   tolerance: 50
 
-rule-providers:
 # 规则集
 ## type：可选http/file/inline  behavior：可选domain/ipcidr/classical format：可选yaml/text/mrs
 rule-anchor:
