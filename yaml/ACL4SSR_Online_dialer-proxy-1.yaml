@@ -178,7 +178,7 @@ proxy-groups:
   include-all: true
 
 - name: 🎯 全球直连
-  type: select
+  type: direct
 
 - name: 🇺🇲 美国落地
   include-all: true
