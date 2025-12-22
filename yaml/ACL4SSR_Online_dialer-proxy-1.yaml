@@ -177,6 +177,9 @@ proxy-groups:
   type: select
   include-all: true
 
+- name: 直连
+  type: direct
+
 - name: 🇺🇲 美国落地
   include-all: true
   filter: (?i)美国落地
