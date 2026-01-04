@@ -79,6 +79,40 @@ proxy-groups:
   proxies: [🚀 默认代理, 🇺🇲 美国落地, 🇭🇰 香港落地, 🔯 香港故转, 🔯 日本故转, 🔯 狮城故转, 🔯 美国故转, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 自动选择, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点, 🌐 全部节点, 🎯 全球直连]
 
 # ========================
+# 全局
+# ========================
+
+- name: ♻️ 自动选择
+  type: url-test
+  include-all: true
+  tolerance: 20
+  interval: 300
+  filter: "^((?!(直连)).)*$"
+
+- name: 🌐 全部节点
+  type: select
+  include-all: true
+
+
+- name: 🎯 全球直连
+  type: select
+  proxies: [DIRECT, 🚀 默认代理, ♻️ 自动选择]
+
+- name: 🇺🇲 美国落地
+  include-all: true
+  filter: (?i)美国落地
+  type: select
+  url: 'http://YouTube.com/generate_204' # 这里直接引用了你全局常用的 YouTube 测试地址
+  interval: 300
+
+- name: 🇭🇰 香港落地
+  include-all: true
+  filter: (?i)香港落地
+  type: url-test
+  interval: 300
+  tolerance: 50
+
+# ========================
 # 国家节点（手动）
 # ========================
 
@@ -161,40 +195,6 @@ proxy-groups:
   tolerance: 20
   interval: 300
   filter: "(?=.*(美|US|(?i)States|America))^((?!(港|台|日|韩|新)).)*$"
-
-# ========================
-# 全局
-# ========================
-
-- name: ♻️ 自动选择
-  type: url-test
-  include-all: true
-  tolerance: 20
-  interval: 300
-  filter: "^((?!(直连)).)*$"
-
-- name: 🌐 全部节点
-  type: select
-  include-all: true
-
-
-- name: 🎯 全球直连
-  type: select
-  proxies: [DIRECT, 🚀 默认代理, ♻️ 自动选择]
-
-- name: 🇺🇲 美国落地
-  include-all: true
-  filter: (?i)美国落地
-  type: select
-  url: 'http://YouTube.com/generate_204' # 这里直接引用了你全局常用的 YouTube 测试地址
-  interval: 300
-
-- name: 🇭🇰 香港落地
-  include-all: true
-  filter: (?i)香港落地
-  type: url-test
-  interval: 300
-  tolerance: 50
 
 # 规则集
 ## type：可选http/file/inline  behavior：可选domain/ipcidr/classical format：可选yaml/text/mrs
