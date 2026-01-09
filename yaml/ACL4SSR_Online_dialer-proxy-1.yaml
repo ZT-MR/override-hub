@@ -234,7 +234,9 @@ rules:
   - "DOMAIN-SUFFIX,events.data.microsoft.com,🎯 全球直连"
   - "DOMAIN-SUFFIX,nisus-tech.com,🎯 全球直连"
   - "DOMAIN-SUFFIX,nisus-apyd.com,🎯 全球直连"
-  - "DOMAIN-SUFFIX,ztmr.me,🎯 全球直连"
+  - "DOMAIN-SUFFIX,subus.ztmr.me,🎯 全球直连"
+  - "DOMAIN-SUFFIX,sub.ztmr.me,🎯 全球直连"
+  - "DOMAIN-SUFFIX,www.ztmr.me,🎯 全球直连"
   - "DOMAIN-SUFFIX,zt-mr.top,🎯 全球直连"
   #阻断
   - "DOMAIN-SUFFIX,autodesk.com,REJECT"
