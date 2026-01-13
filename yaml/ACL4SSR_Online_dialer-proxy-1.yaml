@@ -144,25 +144,25 @@ proxy-groups:
   type: fallback
   include-all: true
   interval: 300
-  filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美)).)*$"
+  filter: "(?=.*(港|HK|(?i)Hong))^((?!(落地|台|日|韩|新|深|美)).)*$"
 
 - name: 🔯 日本故转
   type: fallback
   include-all: true
   interval: 300
-  filter: "(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$"
+  filter: "(?=.*(日|JP|(?i)Japan))^((?!(落地|港|台|韩|新|美)).)*$"
 
 - name: 🔯 狮城故转
   type: fallback
   include-all: true
   interval: 300
-  filter: "(?=.*(新加坡|坡|狮城|SG|Singapore))^((?!(台|日|韩|深|美)).)*$"
+  filter: "(?=.*(新加坡|坡|狮城|SG|Singapore))^((?!(落地|台|日|韩|深|美)).)*$"
 
 - name: 🔯 美国故转
   type: fallback
   include-all: true
   interval: 300
-  filter: "(?=.*(美|US|(?i)States|America))^((?!(港|台|韩|新|日)).)*$"
+  filter: "(?=.*(美|US|(?i)States|America))^((?!(落地|港|台|韩|新|日)).)*$"
 
 # ========================
 # 国家自动（url-test）
@@ -173,28 +173,29 @@ proxy-groups:
   include-all: true
   tolerance: 20
   interval: 300
-  filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美)).)*$"
+  filter: "(?=.*(港|HK|(?i)Hong))^((?!(落地|台|日|韩|新|深|美)).)*$"
 
 - name: ♻️ 日本自动
   type: url-test
   include-all: true
   tolerance: 20
   interval: 300
-  filter: "(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$"
+  filter: "(?=.*(日|JP|(?i)Japan))^((?!(落地|港|台|韩|新|美)).)*$"
 
 - name: ♻️ 狮城自动
   type: url-test
   include-all: true
   tolerance: 20
   interval: 300
-  filter: "(?=.*(新加坡|坡|狮城|SG|Singapore))^((?!(港|台|韩|日|美)).)*$"
+  filter: "(?=.*(新加坡|坡|狮城|SG|Singapore))^((?!(落地|港|台|韩|日|美)).)*$"
 
 - name: ♻️ 美国自动
   type: url-test
   include-all: true
   tolerance: 20
   interval: 300
-  filter: "(?=.*(美|US|(?i)States|America))^((?!(港|台|日|韩|新)).)*$"
+  filter: "(?=.*(美|US|(?i)States|America))^((?!(落地|港|台|日|韩|新)).)*$"
+  #exclude-filter: "落地"
 
 # 规则集
 ## type：可选http/file/inline  behavior：可选domain/ipcidr/classical format：可选yaml/text/mrs
