@@ -34,13 +34,6 @@ proxy-groups:
   type: select
   proxies: [🇺🇲 美国落地, 🇭🇰 香港落地, 🔯 香港故转, 🔯 日本故转, 🔯 狮城故转, 🔯 美国故转, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 自动选择, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点, 🌐 全部节点, DIRECT]
 
-#- name: 🔗 美国链式代理
-  type: relay # 🔥 注意：类型必须是 relay
-  proxies:
-    - ♻️ 美国自动 # 👈 第一层：作为前置/中继节点（入口）
-    - 🇺🇲 美国落地 # 👈 第二层：作为最终出口（落地）
-
-# 3. 最终落地组：核心链式配置
 - name: 🇺🇲 美国落地
   type: select
   include-all: true
@@ -49,14 +42,6 @@ proxy-groups:
   dialer-proxy: ♻️ 美国自动 
   interval: 300
   
-#- name: 🇺🇲 美国落地
-  include-all: true
-  filter: (?i)ZTMT落地-US
-  type: select
-  #dialer-proxy: ♻️ 美国自动
-  #url: 'http://YouTube.com/generate_204' # 这里直接引用了你全局常用的 YouTube 测试地址
-  interval: 300
-
 - name: 📹 YouTube
   type: select
   proxies: [🚀 默认代理, 🇺🇲 美国落地, 🇭🇰 香港落地, 🔯 美国故转, 🔯 香港故转, 🔯 日本故转, 🔯 狮城故转, ♻️ 美国自动, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 自动选择, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点, 🌐 全部节点, 🎯 全球直连]
